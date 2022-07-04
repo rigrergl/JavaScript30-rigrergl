@@ -82,10 +82,20 @@
 
             const seconds = now.getSeconds();
             const secondsDegree = ((seconds / 60) * 360) + 90;
+            if (secondsDegree === 90) {
+                secondsHand.style.transition = 'none';
+            } else {
+                secondsHand.style.transition = 'all 0.05s';
+            }
             secondsHand.style.transform = `rotate(${secondsDegree}deg)`;
 
             const minutes = now.getMinutes();
             const minutesDegree = ((minutes / 60) * 360) + ((seconds / 60) * 6) + 90;
+            if (minutesDegree === 90) {
+                minutesHand.style.transition = 'none';
+            } else {
+                minutesHand.style.transition = 'all 0.05s';
+            }
             minutesHand.style.transform = `rotate(${minutesDegree}deg)`
 
             const hour = now.getHours();
